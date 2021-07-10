@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'https://jsonplaceholder.typicode.com/todos'
+  urlAddress: 'https://jsonplaceholder.typicode.com'
 };
 
 /*
