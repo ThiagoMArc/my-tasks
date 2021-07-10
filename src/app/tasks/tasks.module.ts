@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ListTasksComponent } from './list-tasks/list-tasks.component';
+import { TasksRoutingModule } from './tasks-routing.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListTasksComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    TasksRoutingModule
   ]
 })
 export class TasksModule { }
