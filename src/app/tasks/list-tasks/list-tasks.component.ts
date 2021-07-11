@@ -5,6 +5,8 @@ import { ITodo } from 'src/app/models/ITodo';
 import { AppServiceService } from 'src/app/services/app-service.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailTaskComponent } from '../detail-task/detail-task.component';
 
 @Component({
   selector: 'app-list-tasks',
@@ -21,8 +23,11 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subs!: Subscription;
 
-  constructor(private service: AppServiceService,
-    private router: Router) { }
+  constructor(
+    private service: AppServiceService,
+    private router: Router,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -49,15 +54,18 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.dataSource.filter = val.trim().toLocaleLowerCase();
   }
 
-  public redirectToDetails = (id: string) => {
-    let url = `/tarefas/detalhes/${id}`;
-    this.router.navigate([url]);
+  openDetailsDialog(id: string) {
+    this.dialog.open(DetailTaskComponent, {
+      data: { id }
+    });
   }
 
-  public redirectToUpdate = (id: string) => {
+
+  redirectToUpdate(id: string) {
 
   }
-  public redirectToDelete = (id: string) => {
+
+  redirectToDelete(id: string) {
 
   }
 
