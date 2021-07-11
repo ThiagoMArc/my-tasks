@@ -5,11 +5,13 @@ import { TasksRoutingModule } from './tasks-routing.module';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../shared/material.module';
+import { DetailTaskComponent } from './detail-task/detail-task.component';
 
 @NgModule({
   declarations: [
     ListTasksComponent,
     CreateTaskComponent,
+    DetailTaskComponent,
   ],
   imports: [
     CommonModule,

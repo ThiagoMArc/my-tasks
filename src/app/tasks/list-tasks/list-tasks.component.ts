@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ITodo } from 'src/app/models/ITodo';
 import { AppServiceService } from 'src/app/services/app-service.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-tasks',
@@ -20,7 +21,8 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subs!: Subscription;
 
-  constructor(private service: AppServiceService) { }
+  constructor(private service: AppServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -48,8 +50,10 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public redirectToDetails = (id: string) => {
-
+    let url = `/tarefas/detalhes/${id}`;
+    this.router.navigate([url]);
   }
+
   public redirectToUpdate = (id: string) => {
 
   }

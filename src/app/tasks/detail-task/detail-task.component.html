@@ -1,0 +1,39 @@
+<br>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Detalhes da tarefa</mat-card-title>
+    <mat-card-content>
+      <div fxLayout="column wrap" fxLayoutGap="40px">
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Id Tarefa:</strong></div>
+          <div fxFlex>{{task.id}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Título:</strong></div>
+          <div fxFlex>{{task.title}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Usuário atribuído:</strong></div>
+          <div fxFlex>{{task.userId}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex><strong>Tarefa Finalizada:</strong></div>
+          <div fxFlex>{{task.completed ? "Sim":"Não"}}</div>
+        </div>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex>
+            <button mat-raised-button color="warn" (click)="onBack()"> Voltar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</section>
