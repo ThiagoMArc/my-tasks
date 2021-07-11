@@ -7,7 +7,6 @@ import { DetailTaskComponent } from './detail-task/detail-task.component';
 
 const routes: Routes = [
   { path: 'lista', component: ListTasksComponent },
-  { path: 'detalhes/:id', component: DetailTaskComponent },
   { path: 'novo', component: CreateTaskComponent }
 ]
 
