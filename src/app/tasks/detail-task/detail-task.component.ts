@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ITodo } from 'src/app/models/ITodo';
 import { AppServiceService } from 'src/app/services/app-service.service';
