@@ -5,9 +5,14 @@ import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CreateTaskComponent } from './create-task/create-task.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
-  { path: 'list', component: ListTasksComponent }
+  { path: 'list', component: ListTasksComponent },
+  { path: 'create', component: CreateTaskComponent }
 ]
 
 @NgModule({
@@ -17,8 +22,18 @@ const routes: Routes = [
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule, MatIconModule, MatTableModule, MatPaginatorModule]
+  exports: [
+    RouterModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatInputModule]
 })
 export class TasksRoutingModule { }

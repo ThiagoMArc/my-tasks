@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ITodo } from 'src/app/models/ITodo';
 import { AppServiceService } from 'src/app/services/app-service.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -40,6 +40,11 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
       error: err => console.log(err)
     });
 
+  }
+
+  doFilter($event: any): string {
+    let val = $event.target.value;
+    return this.dataSource.filter = val.trim().toLocaleLowerCase();
   }
 
   public redirectToDetails = (id: string) => {
