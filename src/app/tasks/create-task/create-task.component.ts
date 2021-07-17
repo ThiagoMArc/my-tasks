@@ -1,10 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ICreateTodo } from 'src/app/models/ICreateTodo';
 import { AppServiceService } from 'src/app/services/app-service.service';
-import { SuccessDialogComponent } from 'src/app/shared/dialogs/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-create-task',
@@ -14,23 +13,17 @@ import { SuccessDialogComponent } from 'src/app/shared/dialogs/success-dialog/su
 export class CreateTaskComponent implements OnInit {
 
   taskForm!: FormGroup;
-  private dialogConfig: any;
 
-  constructor(private service: AppServiceService, private location: Location, private dialog: MatDialog) { }
+
+  constructor(private service: AppServiceService,
+    private location: Location,
+    private toastrService: ToastrService) { }
 
   ngOnInit(): void {
 
     this.taskForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(60)])
     })
-
-    this.dialogConfig = {
-      height: '200px',
-      width: '400px',
-      disableClose: true,
-      data: {}
-    }
-
 
   }
 
@@ -54,15 +47,13 @@ export class CreateTaskComponent implements OnInit {
 
     this.service.create('todos', createTask).subscribe({
       next: () => {
-
-        let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
-
-        dialogRef.afterClosed()
-          .subscribe(() => {
-            this.location.back();
-          });
+        this.toastrService.success("Tarefa criada com sucesso");
+        this.location.back();
       },
-      error: err => this.location.back()
+      error: err => {
+        this.toastrService.error("Ocorreu um erro ao tentar criar a tarefa");
+        this.location.back()
+      }
     })
   }
 
