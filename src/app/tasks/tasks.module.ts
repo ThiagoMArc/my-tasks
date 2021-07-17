@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '../shared/material.module';
+import { SharedModule } from '../shared/shared.module';
 import { DetailTaskComponent } from './detail-task/detail-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { DetailTaskComponent } from './detail-task/detail-task.component';
   imports: [
     CommonModule,
     TasksRoutingModule,
-    MaterialModule,
-    FlexLayoutModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class TasksModule { }

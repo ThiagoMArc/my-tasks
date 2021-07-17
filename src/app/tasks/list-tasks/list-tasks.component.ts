@@ -60,6 +60,10 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  setTaskCompletedColor(val: boolean): object {
+    return val === true ? { 'color': 'green' } : { 'color': 'red' }
+  }
+
 
   redirectToUpdate(id: string) {
 

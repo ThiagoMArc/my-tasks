@@ -9,10 +9,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessDialogComponent } from './dialogs/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SuccessDialogComponent,
+    ErrorDialogComponent
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -22,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
   exports: [
     MatToolbarModule,
@@ -33,7 +40,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatDialogModule
-  ]
+    MatDialogModule,
+    SuccessDialogComponent,
+    ErrorDialogComponent,
+    FlexLayoutModule
+  ],
+  entryComponents: [SuccessDialogComponent,
+    ErrorDialogComponent]
 })
-export class MaterialModule { }
+export class SharedModule { }

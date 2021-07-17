@@ -28,7 +28,7 @@
 
   <ng-container matColumnDef="completed">
     <th mat-header-cell *matHeaderCellDef> Finalizada </th>
-    <td mat-cell *matCellDef="let element"> {{element.completed ? "Sim":"Não"}} </td>
+    <td mat-cell *matCellDef="let element" [ngStyle]="setTaskCompletedColor(element.completed)"> {{element.completed ? "Sim":"Não"}} </td>
   </ng-container>
 
   <ng-container matColumnDef="details">

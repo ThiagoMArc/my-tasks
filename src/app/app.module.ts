@@ -8,7 +8,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { NavigationBarComponent } from './navigation-bar.component';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './shared/material.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { MaterialModule } from './shared/material.module';
     AppRoutingModule,
     TasksModule,
     HomeModule,
-    MaterialModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
