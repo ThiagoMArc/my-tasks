@@ -66,7 +66,7 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   redirectToUpdate(id: string) {
-
+    this.router.navigate([`/atualizar/${id}`]);
   }
 
   redirectToDelete(id: string) {

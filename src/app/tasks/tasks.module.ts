@@ -6,12 +6,14 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { SharedModule } from '../shared/shared.module';
 import { DetailTaskComponent } from './detail-task/detail-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 @NgModule({
   declarations: [
     ListTasksComponent,
     CreateTaskComponent,
     DetailTaskComponent,
+    UpdateTaskComponent,
   ],
   imports: [
     CommonModule,
