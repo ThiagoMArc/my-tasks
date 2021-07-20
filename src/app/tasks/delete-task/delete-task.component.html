@@ -1,0 +1,24 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Deletar tarefa</mat-card-title>
+    <mat-card-content>
+      <div fxLayout="column wrap" fxLayoutGap="40px">
+
+        <span>Deseja deletar a tarefa?</span>
+
+        <div fxLayout="row wrap" fxFlex>
+          <div fxFlex>
+            <button mat-raised-button mat-dialog-close (click)="deleteItem()" color="primary">
+              Deletar
+            </button>
+            <button mat-raised-button mat-dialog-close color="warn">
+              Fechar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</section>

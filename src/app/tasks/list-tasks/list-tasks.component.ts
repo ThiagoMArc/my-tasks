@@ -7,6 +7,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailTaskComponent } from '../detail-task/detail-task.component';
+import { DeleteTaskComponent } from '../delete-task/delete-task.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-tasks',
@@ -26,7 +28,8 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private service: AppServiceService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -69,8 +72,25 @@ export class ListTasksComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate([`/atualizar/${id}`]);
   }
 
-  redirectToDelete(id: string) {
+  openDeleteItemConfirmationDialog(id: string) {
+    this.dialog.open(DeleteTaskComponent).afterClosed().subscribe(result => {
+      if (result.deleteEvent) {
+        this.service.delete(`todos/${id}`).subscribe({
+          next: () => {
+            this.deleteRowData(Number(id));
+            this.toastrService.success("Tarefa deletada com sucesso");
+          },
+          error: () => {
+            this.toastrService.error("Ocorreu um erro ao tentar deletar a atividade");
+          }
+        })
 
+      }
+    });
+  }
+
+  deleteRowData(id: Number) {
+    this.dataSource.data = this.dataSource.data.filter(item => item.id !== id);
   }
 
 }

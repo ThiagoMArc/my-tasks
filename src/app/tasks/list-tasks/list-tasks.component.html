@@ -28,7 +28,8 @@
 
   <ng-container matColumnDef="completed">
     <th mat-header-cell *matHeaderCellDef> Finalizada </th>
-    <td mat-cell *matCellDef="let element" [ngStyle]="setTaskCompletedColor(element.completed)"> {{element.completed ? "Sim":"Não"}} </td>
+    <td mat-cell *matCellDef="let element" [ngStyle]="setTaskCompletedColor(element.completed)"> {{element.completed ?
+      "Sim":"Não"}} </td>
   </ng-container>
 
   <ng-container matColumnDef="details">
@@ -52,7 +53,7 @@
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef> Deletar </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+      <button mat-icon-button color="warn" (click)="openDeleteItemConfirmationDialog(element.id)">
         <mat-icon class="mat-18">delete</mat-icon>
       </button>
     </td>

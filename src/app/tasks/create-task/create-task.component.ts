@@ -20,7 +20,6 @@ export class CreateTaskComponent implements OnInit {
     private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-
     this.taskForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(60)])
     })
@@ -50,7 +49,7 @@ export class CreateTaskComponent implements OnInit {
         this.toastrService.success("Tarefa criada com sucesso");
         this.location.back();
       },
-      error: err => {
+      error: () => {
         this.toastrService.error("Ocorreu um erro ao tentar criar a tarefa");
         this.location.back()
       }
